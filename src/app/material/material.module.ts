@@ -10,6 +10,8 @@ import {
   MatToolbarModule,
   MatProgressSpinnerModule,
   MatDialogModule,
+  MatDatepickerModule,
+  MatSnackBarModule, MatNativeDateModule, MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -23,6 +25,9 @@ import {
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatInputModule,
@@ -34,6 +39,9 @@ import {
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule {}

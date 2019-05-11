@@ -7,11 +7,10 @@ import { LayoutActions } from '../actions';
 
 @Component({
   selector: 'app-root',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <app-layout>
       <app-sidenav [open]="showSidenav$ | async" (closeMenu)="closeSidenav()">
-        <app-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/transactions" icon="search" hint="Find your transaction">
+        <app-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/transaction-report" icon="search" hint="Find your transaction">
           Transaction
         </app-nav-item>
         <app-nav-item (navigate)="closeSidenav()" *ngIf="!(loggedIn$ | async)">

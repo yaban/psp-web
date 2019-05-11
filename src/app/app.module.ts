@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS, metaReducers } from './reducers';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './core/containers/app.component';
+import {TransactionReportModule} from './transaction-report/transaction-report.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {AppComponent} from './core/containers/app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule,
+    TransactionReportModule,
     AppRoutingModule,
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -70,7 +72,6 @@ import {AppComponent} from './core/containers/app.component';
      * See: https://ngrx.io/guide/effects#registering-root-effects
      */
     EffectsModule.forRoot([]),
-
     CoreModule,
   ],
   providers: [],

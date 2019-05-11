@@ -1,0 +1,57 @@
+<div class="container">
+
+  <mat-card>
+    <mat-card-title>Transaction Report</mat-card-title>
+    <mat-card-content>
+    <form class="m-form" [formGroup]="transactionReportSearchForm">
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="fromDate"  formControlName='fromDate'  placeholder="from Date">
+            <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="toDate"   formControlName='toDate'    placeholder="to date">
+            <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+            <mat-datepicker #toDate></mat-datepicker>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Merchant​​" formControlName="merchant​​" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Acquirer​​"  formControlName="acquirer​​" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <button type="button" mat-raised-button color="primary" (click)="onSubmit()" >Search</button>
+        </div>
+      </div>
+
+    </form>
+
+      <div *ngIf="reports.length>0">
+        <table class="text-center">
+          <tr>
+            <th style="width:75px">Count</th>
+            <th style="width:75px">Total</th>
+            <th style="width:75px">Currency</th>
+          </tr>
+          <tr *ngFor="let report of reports; trackBy: trackByFn">
+           <td>{{ report.count }}</td>
+           <td>{{ report.total }}</td>
+           <td>{{ report.currency }}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
