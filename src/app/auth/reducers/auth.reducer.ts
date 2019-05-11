@@ -3,14 +3,12 @@ import { AuthActions } from '../actions';
 import { Token } from '../models';
 
 export interface State {
-  token: Token | null;
+  token: string | null;
 }
 
-const to: Token =  {
-  token: localStorage.getItem('token') !== null ? localStorage.getItem('token') : null
-};
-
-export const initialState: State = to;
+export const initialState: State = {
+  token: null
+};;
 
 export const reducer = createReducer(
   initialState,
