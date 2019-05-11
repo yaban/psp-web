@@ -16,7 +16,6 @@ export class TransactionReportEffect {
     ) {
     }
 
-
   @Effect()
   getTransactionReport = this.actions.pipe(
     // filter out the actions, except '[Customers Page] Get'
@@ -33,38 +32,5 @@ export class TransactionReportEffect {
 
     ),
   );
-/*
-  @Effect()
-
-  loadMovies$ = this.actions
-    .pipe(
-      ofType(fromAction.TRANSACTION_REPORT)
-        .pipe(
-
-        )
-      switchMap((payload) => this.transactionReportService.getTransactionReport(payload)
-        .pipe(
-          map((reportResponse: ReportResponse)  => new fromAction.TransactionReportSuccess( reportResponse.response)),
-          catchError(() => EMPTY)
-        ))
-
-    );
-
-*/
-/*
-   @Effect()
-    customerSearchEffect = this.actions
-        .ofType<fromAction.TransactionReport>(fromAction.TRANSACTION_REPORT)
-        .pipe(
-            map(action => action.payload),
-            switchMap((payload: Search) =>
-                this.transactionReportService.getTransactionReport(payload).pipe(
-                    map((reportResponse: ReportResponse) => new fromAction.TransactionReportSuccess(reportResponse.response)),
-                    catchError(err => of(new fromAction.TransactionReportFail(err)))
-                )
-            )
-        );
-*/
-
 
 }

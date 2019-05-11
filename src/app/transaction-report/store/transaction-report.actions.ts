@@ -1,7 +1,5 @@
 import {Action, createAction, props} from '@ngrx/store';
 import { Search, Report} from '../models';
-import {Token} from '../../auth/models';
-import {ApiError} from '../../core/model/ApiError';
 
 export const TRANSACTION_REPORT = 'TRANSACTION_REPORT';
 export const TRANSACTION_REPORT_SUCCESS = 'TRANSACTION_REPORT_SUCCESS';
