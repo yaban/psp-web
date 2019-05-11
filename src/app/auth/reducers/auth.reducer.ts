@@ -8,7 +8,7 @@ export interface State {
 
 export const initialState: State = {
   token: null
-};;
+};
 
 export const reducer = createReducer(
   initialState,

@@ -31,6 +31,7 @@ import { LayoutActions } from '../actions';
 export class AppComponent {
   showSidenav$: Observable<boolean>;
   loggedIn$: Observable<boolean>;
+  title = 'psp-web';
 
   constructor(private store: Store<fromRoot.State & fromAuth.State>) {
     this.showSidenav$ = this.store.pipe(select(fromRoot.getShowSidenav));
