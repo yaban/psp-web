@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8010/proxy/api/v3/',
+  apiUrl: '/api/v3/',
   dateFormat: 'yyyy-MM-dd',
 };
 

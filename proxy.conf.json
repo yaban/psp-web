@@ -1,0 +1,8 @@
+{
+  "/api/*":{
+    "target": "https://sandbox-reporting.rpdpymnt.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
