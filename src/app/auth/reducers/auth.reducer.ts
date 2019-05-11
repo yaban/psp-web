@@ -6,8 +6,12 @@ export interface State {
   token: Token | null;
 }
 
-export const initialState: State = {
+const to: Token =  {
   token: localStorage.getItem('token') ? localStorage.getItem('token') : null
+};
+
+export const initialState: State = {
+  token: to
 };
 
 export const reducer = createReducer(

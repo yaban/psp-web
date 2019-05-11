@@ -18,7 +18,6 @@ import {CoreModule} from './core/core.module';
 import {AppComponent} from './core/containers/app.component';
 import {TransactionReportModule} from './transaction-report/transaction-report.module';
 import {TransactionListModule} from './transaction-list/transaction-list.module';
-import { storeFreeze } from 'ngrx-store-freeze';
 
 
 @NgModule({
