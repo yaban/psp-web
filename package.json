@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "proxy": "lcp --proxyUrl https://sandbox-reporting.rpdpymnt.com/",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {
