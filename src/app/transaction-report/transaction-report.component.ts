@@ -7,10 +7,15 @@ import {MatSnackBar} from '@angular/material';
 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-transaction-report',
-  templateUrl: './transaction-report.component.html'
+  templateUrl: './transaction-report.component.html',
+  providers: [
+    DatePipe
+  ]
 })
 export class TransactionReportComponent implements OnInit {
 
@@ -26,7 +31,8 @@ export class TransactionReportComponent implements OnInit {
 
   constructor(
     private store: Store<fromSelector.TransactionReportAppState>,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private datePipe: DatePipe
   ) {
   }
 
@@ -55,8 +61,9 @@ export class TransactionReportComponent implements OnInit {
       return;
     }
 
-    this.search = this.transactionReportSearchForm.value;
-
+    this.search = {...this.transactionReportSearchForm.value};
+    this.search.fromDate = this.datePipe.transform(this.search.fromDate, environment.dateFormat);
+    this.search.toDate = this.datePipe.transform(this.search.toDate, environment.dateFormat);
     this.store.dispatch(new fromActions.TransactionReport(this.search));
 
   }
