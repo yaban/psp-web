@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "proxy": "lcp --proxyUrl https://sandbox-reporting.rpdpymnt.com/",
-    "preinstall": "npm install -g angular-cli",
+    "preinstall": "npm install -g @angular/cli",
     "postinstall": "ng build --prod"
   },
   "private": true,
