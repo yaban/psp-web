@@ -3,7 +3,7 @@ import { AuthActions } from '../actions';
 import { Token } from '../models';
 
 export interface State {
-  token: string | null;
+  token: Token | null;
 }
 
 export const initialState: State = {
