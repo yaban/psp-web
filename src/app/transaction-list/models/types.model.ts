@@ -1,0 +1,12 @@
+export enum Status {
+  APPROVED = 'APPROVED', WAITING = 'WAITING', DECLINED = 'DECLINED', ERROR = 'ERROR'
+}
+
+export enum Operation {
+  DIRECT = 'DIRECT', REFUND = 'REFUND', _3D = '3D', _3DAUTH = '3DAUTH', STORED = 'STORED'
+}
+
+export enum PaymentMethod {
+  CREDITCARD = 'CREDITCARD', ​ ​CUP = 'CUP',​ ​IDEAL = 'IDEAL',​ ​GIROPAY = 'GIROPAY',​ ​MISTERCASH = 'MISTERCASH',​ ​STORED = 'STORED', PAYTOCARD = 'PAYTOCARD',​ ​CEPBANK = 'CEPBANK',​ ​CITADEL = 'CITADEL'​
+
+}

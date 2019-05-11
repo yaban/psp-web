@@ -17,6 +17,8 @@ import { ROOT_REDUCERS, metaReducers } from './reducers';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './core/containers/app.component';
 import {TransactionReportModule} from './transaction-report/transaction-report.module';
+import {TransactionListModule} from './transaction-list/transaction-list.module';
+import { storeFreeze } from 'ngrx-store-freeze';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import {TransactionReportModule} from './transaction-report/transaction-report.m
     HttpClientModule,
     AuthModule,
     TransactionReportModule,
+    TransactionListModule,
     AppRoutingModule,
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -38,7 +41,7 @@ import {TransactionReportModule} from './transaction-report/transaction-report.m
     StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers,
       runtimeChecks: {
-        strictImmutability: true,
+        strictImmutability: true
       },
     }),
 

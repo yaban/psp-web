@@ -1,0 +1,116 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Transaction List</mat-card-title>
+    <mat-card-content>
+    <form class="m-form" [formGroup]="transactionListSearchForm">
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="fromDate"  formControlName='fromDate'  placeholder="from Date">
+            <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+            <mat-datepicker #fromDate></mat-datepicker>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="toDate"   formControlName='toDate'    placeholder="to date">
+            <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+            <mat-datepicker #toDate></mat-datepicker>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="example-full-width">
+            <mat-select formControlName='status'  placeholder="status">
+              <mat-option *ngFor="let status of statuses" [value]="status">
+                {{ status}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="example-full-width">
+            <mat-select formControlName='operation'  placeholder="operation">
+              <mat-option *ngFor="let operation of operations" [value]="operation">
+                {{ operation}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Merchant​​" formControlName="merchantId" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Acquirer​​"  formControlName="acquirerId" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="example-full-width">
+            <mat-select formControlName='paymentMethod'  placeholder="Payment Method">
+              <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">
+                {{ paymentMethod}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Error Code"  formControlName="errorCode" />
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Filter Field"  formControlName="filterField" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <mat-form-field class="mat-form-field-fluid">
+            <input matInput placeholder="Filter Value"  formControlName="filterValue" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2">
+          <button type="button" mat-raised-button color="primary" (click)="onSubmit()" >Search</button>
+        </div>
+      </div>
+
+    </form>
+
+      <div *ngIf="list.length>0">
+        <table class="text-center">
+          <tr>
+            <th style="width:150px">Fx Information</th>
+            <th style="width:150px">Customer Info</th>
+            <th style="width:150px">Merchant​ ​Info</th>
+            <th style="width:100px">Ipn​ ​received</th>
+            <th style="width:150px">Transaction​ ​Info</th>
+            <th style="width:150px">Acquirer​ ​Info</th>
+            <th style="width:75px">Refundable</th>
+
+          </tr>
+          <tr *ngFor="let item of list; trackBy: trackByFn">
+           <td>{{ item.fx.merchant.originalAmount + " " +  item.fx.merchant.originalCurrency}} </td>
+           <td>{{ item.customerInfo.email + " " +  item.customerInfo.billingFirstName }}</td>
+           <td>{{ item.merchant.name + " " + item.merchant.id }}</td>
+           <td>{{ item.ipn ? item.ipn.sent : '-' }}</td>
+           <td>{{ item.transaction.merchant.referenceNo + " " + item.transaction.merchant.status }}</td>
+           <td>{{ item.acquirer.id + " " + item.acquirer.name }}</td>
+           <td>{{ item.refundable }}</td>
+          </tr>
+        </table>
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" (click)="previous()">Previous</a></li>
+            <li class="page-item"><a class="page-link" (click)="next()" >Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

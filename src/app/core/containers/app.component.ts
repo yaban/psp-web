@@ -11,7 +11,10 @@ import { LayoutActions } from '../actions';
     <app-layout>
       <app-sidenav [open]="showSidenav$ | async" (closeMenu)="closeSidenav()">
         <app-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/transaction-report" icon="search" hint="Find your transaction">
-          Transaction
+          Transaction Report
+        </app-nav-item>
+        <app-nav-item (navigate)="closeSidenav()" *ngIf="loggedIn$ | async" routerLink="/transaction-list" icon="search" hint="Transaction list">
+          Transaction List
         </app-nav-item>
         <app-nav-item (navigate)="closeSidenav()" *ngIf="!(loggedIn$ | async)">
           Sign In
